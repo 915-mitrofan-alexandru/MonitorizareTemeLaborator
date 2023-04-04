@@ -6,7 +6,9 @@ import domain.Tema;
 import org.junit.jupiter.api.Assertions;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import repository.NotaXMLRepository;
 import repository.StudentXMLRepository;
 import repository.TemaXMLRepository;
@@ -19,11 +21,11 @@ import validation.Validator;
 public class AddStudentTest {
     private Service service;
 
-    @BeforeEach
+    @BeforeTest
     void setUp() throws Exception {
-        Validator<Student> studentValidator = new StudentValidator();
-        Validator<Tema> temaValidator = new TemaValidator();
-        Validator<Nota> notaValidator = new NotaValidator();
+        Validator<Student> studentValidator = (Validator<Student>) new StudentValidator();
+        Validator<Tema> temaValidator = (Validator<Tema>) new TemaValidator();
+        Validator<Nota> notaValidator = (Validator<Nota>) new NotaValidator();
 
         StudentXMLRepository fileRepository1 = new StudentXMLRepository(studentValidator, "studenti.xml");
         TemaXMLRepository fileRepository2 = new TemaXMLRepository(temaValidator, "teme.xml");
