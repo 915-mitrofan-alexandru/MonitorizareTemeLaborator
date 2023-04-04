@@ -6,9 +6,9 @@ import domain.Tema;
 import org.junit.jupiter.api.Assertions;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 import repository.NotaXMLRepository;
 import repository.StudentXMLRepository;
 import repository.TemaXMLRepository;
@@ -21,7 +21,7 @@ import validation.Validator;
 public class AddStudentTest {
     private Service service;
 
-    @BeforeTest
+    @BeforeEach
     void setUp() throws Exception {
         Validator<Student> studentValidator = (Validator<Student>) new StudentValidator();
         Validator<Tema> temaValidator = (Validator<Tema>) new TemaValidator();
